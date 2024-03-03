@@ -1,5 +1,5 @@
 # You can pick any Debian/Ubuntu-based image. 😊
-FROM mcr.microsoft.com/vscode/devcontainers/base:bullseye
+FROM mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 ARG USERNAME=vscode
