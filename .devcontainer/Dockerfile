@@ -1,5 +1,5 @@
 # You can pick any Debian/Ubuntu-based image. 😊
-FROM mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm
+FROM mcr.microsoft.com/devcontainers/dotnet:1-8.0-jammy
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 ARG USERNAME=vscode
@@ -16,8 +16,9 @@ ARG AGENT_VERSION=3.234.0
 # download, extract and install dependencies for Azure DevOps Pipelines Agent
 RUN cd /home/vscode/azure-pipelines \
     && curl -O -L https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz \
-    && tar xzf /home/vscode/azure-pipelines/vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz \
-    && /home/vscode/azure-pipelines/bin/installdependencies.sh
+    && tar xzf /home/vscode/azure-pipelines/vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz 
+
+RUN sudo /home/vscode/azure-pipelines/bin/installdependencies.sh
 
 # copy over the start.sh script
 COPY scripts/start.sh /home/vscode/azure-pipelines/start.sh
