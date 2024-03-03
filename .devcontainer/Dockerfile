@@ -11,7 +11,7 @@ COPY scripts/*.sh /tmp/scripts/
 RUN cd /home/vscode && mkdir azure-pipelines && cd azure-pipelines
 
 # input ADO agent version argument
-ARG AGENT_VERSION=2.218.1
+ARG AGENT_VERSION=3.234.0
 
 # download, extract and install dependencies for Azure DevOps Pipelines Agent
 RUN cd /home/vscode/azure-pipelines \
